@@ -3,23 +3,11 @@ import {Platform, StyleSheet, Button, Text, View} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 
+import Dummy from './Dummy';
+
 import DummyDisplay from '../components/DummyDisplay';
 import ItemList from '../components/ItemList';
 import { mapDispatchToProps } from '../ducks/actions';
-
-class Dummy extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Dummy Screen</Text>
-        <Button
-          title="Go to Home"
-          onPress={() => this.props.navigation.navigate('Home')}
-        />
-      </View>
-    );
-  }
-}
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
