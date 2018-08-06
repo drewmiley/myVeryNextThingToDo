@@ -1,4 +1,3 @@
-import {List, Map} from 'immutable';
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
@@ -7,7 +6,7 @@ import store from './ducks/store';
 
 export default class myVeryNextThingToDo extends Component {
     render() {
-        return <Provider store={store}>
+        return <Provider store={store()}>
             <App />
         </Provider>
     };

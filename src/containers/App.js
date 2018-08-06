@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { connect } from 'react-redux';
 
 import DummyDisplay from '../components/DummyDisplay';
+import ItemList from '../components/ItemList';
+import { mapDispatchToProps } from '../ducks/actions';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -11,7 +14,11 @@ const instructions = Platform.select({
 });
 
 type Props = {};
-export default class App extends Component<Props> {
+class App extends Component<Props> {
+  componentDidMount() {
+    this.props.fetchData();
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -19,6 +26,11 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <DummyDisplay />
+        <ItemList
+            items={this.props.items}
+            hasErrored={this.props.hasErrored}
+            isLoading={this.props.isLoading}
+        />
       </View>
     );
   }
@@ -42,3 +54,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default connect(state => state, mapDispatchToProps)(App);

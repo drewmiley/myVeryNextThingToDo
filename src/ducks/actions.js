@@ -2,7 +2,7 @@ export const mapDispatchToProps = dispatch => {
     return { fetchData: url => dispatch(itemsFetchData(url)) };
 };
 
-function itemsFetchData(apiRoute) {
+function itemsFetchData() {
     return dispatch => {
         dispatch(itemsIsLoading(true));
 
