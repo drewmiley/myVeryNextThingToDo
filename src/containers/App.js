@@ -1,10 +1,25 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Button, Text, View} from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 
 import DummyDisplay from '../components/DummyDisplay';
 import ItemList from '../components/ItemList';
 import { mapDispatchToProps } from '../ducks/actions';
+
+class Dummy extends Component {
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Dummy Screen</Text>
+        <Button
+          title="Go to Home"
+          onPress={() => this.props.navigation.navigate('Home')}
+        />
+      </View>
+    );
+  }
+}
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,6 +40,10 @@ class App extends Component<Props> {
         <Text style={styles.welcome}>Welcome to Readct Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <Button
+          title="Go to Dummy"
+          onPress={() => this.props.navigation.navigate('Dummy')}
+        />
         <DummyDisplay />
         <ItemList
             items={this.props.items}
@@ -55,4 +74,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(state => state, mapDispatchToProps)(App);
+export default createStackNavigator({
+  Home: {
+    screen: connect(state => state, mapDispatchToProps)(App)
+  },
+  Dummy: {
+    screen: Dummy
+  }
+}, {
+  initialRouteName: 'Home',
+});
