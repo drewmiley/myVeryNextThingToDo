@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import DummyDisplay from '../components/DummyDisplay';
 import ItemList from '../components/ItemList';
 import { mapDispatchToProps } from '../ducks/actions';
+import baseStyles from '../styles/base';
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -39,23 +40,6 @@ class Home extends Component<Props> {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    }
-});
+const styles = StyleSheet.create(baseStyles);
 
 export default connect(state => state, mapDispatchToProps)(Home);

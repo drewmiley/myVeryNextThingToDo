@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 
+import baseStyles from '../styles/base';
+
 const hello = Platform.select({
   ios: 'IOS',
   android: 'ANDROID'
@@ -17,11 +19,4 @@ export default class DummyDisplay extends Component<Props> {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    }
-});
+const styles = StyleSheet.create(baseStyles);

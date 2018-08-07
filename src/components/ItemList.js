@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import baseStyles from '../styles/base';
+
 type Props = {}
 export default class ItemList extends Component<Props> {
     render() {
@@ -18,11 +20,4 @@ export default class ItemList extends Component<Props> {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    }
-});
+const styles = StyleSheet.create(baseStyles);
