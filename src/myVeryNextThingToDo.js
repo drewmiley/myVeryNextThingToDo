@@ -7,19 +7,15 @@ import Home from './containers/Home';
 import store from './ducks/store';
 
 const App = createStackNavigator({
-  Home: {
-    screen: Home
-  },
-  Dummy: {
-    screen: Dummy
-  }
+    Home: { screen: Home },
+    Dummy: { screen: Dummy }
 }, {
-  initialRouteName: 'Home',
+    initialRouteName: 'Home',
 });
 
 export default class myVeryNextThingToDo extends Component {
     render() {
-        return <Provider store={store()}>
+        return <Provider store={ store() }>
             <App />
         </Provider>
     };
