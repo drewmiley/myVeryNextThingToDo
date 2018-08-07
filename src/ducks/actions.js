@@ -5,15 +5,12 @@ export const mapDispatchToProps = dispatch => {
 function itemsFetchData() {
     return dispatch => {
         dispatch(itemsIsLoading(true));
-
         fetch(`https://5826ed963900d612000138bd.mockapi.io/items`)
             .then(response => {
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }
-
                 dispatch(itemsIsLoading(false));
-
                 return response;
             })
             .then(response => response.json())
