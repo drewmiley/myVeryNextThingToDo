@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Text, View } from 'react-native';
-import Realm from 'realm';
 
 import Screens from '../constants/Screens';
+import dogDB from '../ducks/db';
 
 export default class Dummy extends Component {
     constructor(props) {
@@ -11,12 +11,8 @@ export default class Dummy extends Component {
     }
 
     componentWillMount() {
-        Realm.open({
-            schema: [{ name: 'Dog', properties: { name: 'string' } }]
-        }).then(realm => {
+        dogDB(realm => {
             realm.write(() => {
-                const allDogs = realm.objects('Dog');
-                realm.delete(allDogs);
                 realm.create('Dog', { name: 'Rex' });
             });
             this.setState({ realm });

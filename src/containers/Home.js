@@ -6,6 +6,7 @@ import DummyDisplay from '../components/DummyDisplay';
 import ItemList from '../components/ItemList';
 import Screens from '../constants/Screens';
 import { mapDispatchToProps } from '../ducks/actions';
+import dogDB from '../ducks/db';
 import baseStyles from '../styles/base';
 
 type Props = {};
@@ -14,11 +15,24 @@ class Home extends Component<Props> {
         this.props.fetchData();
     }
 
+    clearDogs() {
+        dogDB(realm => {
+            realm.write(() => {
+                const allDogs = realm.objects('Dog');
+                realm.delete(allDogs);
+            });
+        });
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>Welcome to React Native!</Text>
                 <DummyDisplay />
+                <Button
+                    title="Clear dogs"
+                    onPress={() => this.clearDogs()}
+                />
                 <Button
                     title="Go to Dummy"
                     onPress={() => this.props.navigation.navigate(Screens.DUMMY)}
