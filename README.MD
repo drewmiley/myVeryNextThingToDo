@@ -1,3 +1,3 @@
 # myVeryNextThingToDo
 
-A sample react-native app utilising react-navigation, redux, redux-thunk
+A sample react-native app utilising react-navigation, redux, redux-thunk, realm

@@ -13,7 +13,6 @@ export function itemsIsLoading(state = false, action) {
     switch (action.type) {
         case ActionTypes.ITEMS_IS_LOADING:
             return action.isLoading;
-
         default:
             return state;
     }
