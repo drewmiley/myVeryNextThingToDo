@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import DummyDisplay from '../components/DummyDisplay';
 import ItemList from '../components/ItemList';
+import Screens from '../constants/Screens';
 import { mapDispatchToProps } from '../ducks/actions';
 import baseStyles from '../styles/base';
 
@@ -27,7 +28,7 @@ class Home extends Component<Props> {
                 <Text style={styles.instructions}>{ instructions }</Text>
                 <Button
                     title="Go to Dummy"
-                    onPress={() => this.props.navigation.navigate('Dummy')}
+                    onPress={() => this.props.navigation.navigate(Screens.DUMMY)}
                 />
                 <DummyDisplay />
                 <ItemList
