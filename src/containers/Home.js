@@ -22,8 +22,8 @@ class Home extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Readct Native!</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.instructions}>{ instructions }</Text>
         <Button
           title="Go to Dummy"
           onPress={() => this.props.navigation.navigate('Dummy')}
