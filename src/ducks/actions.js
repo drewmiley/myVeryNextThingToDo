@@ -1,3 +1,5 @@
+import ActionTypes from '../constants/ActionTypes';
+
 export const mapDispatchToProps = dispatch => {
     return { fetchData: url => dispatch(itemsFetchData(url)) };
 };
@@ -21,21 +23,21 @@ function itemsFetchData() {
 
 function itemsHasErrored(bool) {
     return {
-        type: 'ITEMS_HAS_ERRORED',
+        type: ActionTypes.ITEMS_HAS_ERRORED,
         hasErrored: bool
     };
 }
 
 function itemsIsLoading(bool) {
     return {
-        type: 'ITEMS_IS_LOADING',
+        type: ActionTypes.ITEMS_IS_LOADING,
         isLoading: bool
     };
 }
 
 function itemsFetchDataSuccess(items) {
     return {
-        type: 'ITEMS_FETCH_DATA_SUCCESS',
+        type: ActionTypes.ITEMS_FETCH_DATA_SUCCESS,
         items
     };
 }
