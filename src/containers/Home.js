@@ -8,13 +8,6 @@ import Screens from '../constants/Screens';
 import { mapDispatchToProps } from '../ducks/actions';
 import baseStyles from '../styles/base';
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
-
 type Props = {};
 class Home extends Component<Props> {
     componentDidMount() {
@@ -25,12 +18,11 @@ class Home extends Component<Props> {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>Welcome to React Native!</Text>
-                <Text style={styles.instructions}>{ instructions }</Text>
+                <DummyDisplay />
                 <Button
                     title="Go to Dummy"
                     onPress={() => this.props.navigation.navigate(Screens.DUMMY)}
                 />
-                <DummyDisplay />
                 <ItemList
                     items={this.props.items}
                     hasErrored={this.props.hasErrored}

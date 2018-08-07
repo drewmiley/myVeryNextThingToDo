@@ -10,7 +10,7 @@ const base = {
         textAlign: 'center',
         margin: 10,
     },
-    instructions: {
+    simpleText: {
         textAlign: 'center',
         color: '#333333',
         marginBottom: 5,
